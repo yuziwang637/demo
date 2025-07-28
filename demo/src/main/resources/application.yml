@@ -1,0 +1,34 @@
+# 服务器配置
+server:
+  port: 8080
+  servlet:
+    context-path: /demo  # 项目访问路径前缀（可选，如http://localhost:8080/demo/xxx）
+
+# 数据库配置（MySQL）
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  # MySQL驱动（8.x版本用cj.jdbc）
+    url: jdbc:mysql://localhost:3306/你的数据库名?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root  # 数据库用户名（默认root）
+    password: 123456  # 数据库密码（替换为你的MySQL密码）
+
+# MyBatis-Plus配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml  # Mapper.xml文件存放路径（resources/mapper下）
+  type-aliases-package: com.example.demo.entity  # 实体类包路径（用于简化XML中的类名）
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 打印SQL日志（开发环境方便调试）
+    map-underscore-to-camel-case: true  # 开启下划线转驼峰命名（如数据库字段user_name → 实体类userName）
+
+# PageHelper分页插件配置
+pagehelper:
+  helper-dialect: mysql  # 数据库方言（MySQL）
+  reasonable: true  # 合理化分页（页码<=0时查第一页，页码>总页数时查最后一页）
+  support-methods-arguments: true  # 支持通过Mapper接口参数传递分页参数
+
+# Swagger配置（可选，用于API文档）
+springdoc:
+  api-docs:
+    path: /api-docs  # API文档路径
+  swagger-ui:
+    path: /swagger-ui.html  # Swagger UI页面路径

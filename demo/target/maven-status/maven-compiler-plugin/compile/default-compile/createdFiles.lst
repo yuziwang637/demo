@@ -1,0 +1,4 @@
+com\example\demo\config\SwaggerConfig.class
+com\example\demo\DemoApplication.class
+com\example\demo\mapper\StudentMapper.class
+com\example\demo\entity\Student.class
